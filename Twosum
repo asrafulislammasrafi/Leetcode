@@ -1,0 +1,38 @@
+// solution 1
+function twosome(nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] + nums[j] === target) {
+        return [i, j];
+     }
+   }
+  }
+ return [];}
+ console.log(twosome([2, 7, 11, 15], 9)); // Output: [0, 1]
+//solution 2
+function twosome2(nums, target) {
+   const resultObj = {};
+   for (let i = 0; i < nums.length; i++) {
+    const needed = target - nums[i];
+    if (resultObj.hasOwnProperty(needed)) {
+     return [resultObj[needed], i];
+    }
+
+    resultObj[nums[i]] = i;
+   }   return [];
+}
+console.log(twosome2([2, 7, 11, 15], 9)); // Output: [0, 1]
+// solution 2 different variant
+function twosome2(nums, target) {
+  const resultObj = {};
+  for (let i = 0; i < nums.length; i++) {
+    const needed = target - nums[i];
+    if (resultObj[needed] !== undefined) {
+      return [resultObj[needed], i];
+    }
+    resultObj[nums[i]] = i;
+  }
+  return [];
+}
+console.log(twosome2([2, 7, 11, 15], 9)); // Output: [0, 1]
+
