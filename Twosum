@@ -1,3 +1,4 @@
+// leetcode problem 1 https://leetcode.com/problems/two-sum/description/
 // solution 1
 function twosome(nums, target) {
   for (let i = 0; i < nums.length; i++) {
